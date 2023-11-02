@@ -3,12 +3,9 @@ import { cores } from "../../styles";
 
 export const Imagem = styled.div`
   height: 280px;
+  width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
-
-  @media only screen and (max-width: 556px) {
-    margin-top: 16px;
-  }
 `;
 
 export const BannerContainer = styled.div`
@@ -20,11 +17,7 @@ export const BannerContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 24px 0px 32px;
-
-  @media only screen and (max-width: 992px) {
-    margin: 0 16px;
-  }
+  padding: 24px 16px;
 `;
 
 export const Tag = styled.p`
