@@ -21,4 +21,8 @@ export const Container = styled.section`
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
+
+  @media only screen and (max-width: 768px) {
+    margin-top: 32px;
+  }
 `;
