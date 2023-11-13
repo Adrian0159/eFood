@@ -18,6 +18,7 @@ export const ListContainer = styled.ul`
 `;
 
 export const Container = styled.section`
+  position: relative;
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
