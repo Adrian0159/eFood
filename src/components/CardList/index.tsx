@@ -1,27 +1,26 @@
 import Card from "../Card";
+import { Food } from "../../pages/Home";
 import { ContainerCardList, Container } from "./styles";
 
-const CardList = () => (
+export type Props = {
+  restaurantes: Food[];
+};
+
+const CardList = ({ restaurantes }: Props) => (
   <Container>
     <ContainerCardList>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
+      {restaurantes.map((foods) => (
+        <li key={foods.id}>
+          <Card
+            id={foods.id}
+            titulo={foods.titulo}
+            tipo={foods.tipo}
+            avaliacao={foods.avaliacao}
+            descricao={foods.descricao}
+            capa={foods.capa}
+          />
+        </li>
+      ))}
     </ContainerCardList>
   </Container>
 );

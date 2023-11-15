@@ -1,5 +1,4 @@
 import Links from "../Links";
-import Imagem2 from "../../assets/images/image2.png";
 import Estrela from "../../assets/images/estrela.png";
 import {
   ContainerText,
@@ -11,27 +10,34 @@ import {
   TagContainer,
 } from "./styles";
 
-const Card = () => (
-  <CardContainer>
-    <img src={Imagem2} alt="La Dolce Vita Trattoria" />
-    <TagContainer>Italiana</TagContainer>
-    <ContainerText>
-      <TituloContainer>
-        <Titulo>La Dolce Vita Trattoria</Titulo>
-        <Nota>
-          <span>4.6</span>
-          <img src={Estrela} alt="estrela" />
-        </Nota>
-      </TituloContainer>
-      <Description>
-        A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você!
-        Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo
-        no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor
-        inesquecível. Peça já!
-      </Description>
-      <Links />
-    </ContainerText>
-  </CardContainer>
-);
+export type Props = {
+  titulo: string;
+  tipo: string;
+  avaliacao: number;
+  descricao: string;
+  capa: string;
+  id: number;
+};
+
+const Card = ({ titulo, tipo, avaliacao, descricao, capa }: Props) => {
+  return (
+    <CardContainer>
+      <img src={capa} alt={titulo} />
+
+      <TagContainer>{tipo}</TagContainer>
+      <ContainerText>
+        <TituloContainer>
+          <Titulo>{titulo}</Titulo>
+          <Nota>
+            <span>{avaliacao}</span>
+            <img src={Estrela} alt="estrela" />
+          </Nota>
+        </TituloContainer>
+        <Description>{descricao}</Description>
+        <Links />
+      </ContainerText>
+    </CardContainer>
+  );
+};
 
 export default Card;

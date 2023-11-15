@@ -41,8 +41,11 @@ export const CardContainer = styled.div`
   border: 1px solid ${cores.amareloEscuro};
   background-color: ${cores.branca};
   position: relative;
-  img {
+
+  > img {
     width: 100%;
+    height: 217px;
+    object-fit: cover;
   }
 `;
 

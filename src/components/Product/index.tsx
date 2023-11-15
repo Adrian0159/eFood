@@ -2,20 +2,23 @@ import { useState } from "react";
 import pizzaMarguerita from "../../assets/images/image4.png";
 import close from "../../assets/images/close 1.png";
 import { Modal, ModalContainer, ModalImg, ModalText } from "./styles";
-import Pizza from "../../assets/images/image3.png";
 import { Botao, Descrition, ProductContainer, Titulo } from "./styles";
 
-const Product = () => {
+type Props = {
+  foto: string;
+  id: number;
+  nome: string;
+  descricao: string;
+};
+
+const Product = ({ foto, nome, descricao }: Props) => {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
       <ProductContainer>
-        <img src={Pizza} alt="Pizza marguerita" />
-        <Titulo>Pizza Marguerita</Titulo>
-        <Descrition>
-          A clássica Marguerita: molho de tomate suculento, mussarela derretida,
-          manjericão fresco e um toque de azeite. Sabor e simplicidade!
-        </Descrition>
+        <img src={foto} alt={nome} />
+        <Titulo>{nome}</Titulo>
+        <Descrition>{descricao}</Descrition>
         <Botao onClick={() => setModalOpen(true)}>Mais detalhes</Botao>
       </ProductContainer>
       <Modal className={modalOpen ? "visible" : ""}>

@@ -1,29 +1,26 @@
 import Product from "../Product";
+import { Food } from "../../pages/Home";
 import { Container, ListContainer } from "./styles";
 
-const ProductList = () => {
+export type Props = {
+  cardapios: Food[];
+};
+
+const ProductList = ({ cardapios }: Props) => {
   return (
     <>
       <Container>
         <ListContainer>
-          <li>
-            <Product />
-          </li>
-          <li>
-            <Product />
-          </li>
-          <li>
-            <Product />
-          </li>
-          <li>
-            <Product />
-          </li>
-          <li>
-            <Product />
-          </li>
-          <li>
-            <Product />
-          </li>
+          {cardapios.map((foods) => (
+            <li key={foods.cardapio.id}>
+              <Product
+                id={foods.cardapio.id}
+                descricao={foods.cardapio.descricao}
+                foto={foods.cardapio.foto}
+                nome={foods.cardapio.nome}
+              />
+            </li>
+          ))}
         </ListContainer>
       </Container>
     </>
